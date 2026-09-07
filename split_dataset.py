@@ -18,15 +18,7 @@ def ensure_sample_dataset(file_path="sample_data.csv"):
         print(f"Generated sample dataset: '{file_path}' (100 rows)\n")
 
 def split_dataset(file_path, target_column="Target", test_size=0.2, random_state=42):
-    """
-    Loads a dataset from CSV and splits it into training and testing sets.
     
-    Parameters:
-    - file_path: Path to the CSV file
-    - target_column: Name of the target variable column (optional)
-    - test_size: Proportion of the dataset to include in the test split (default 0.2 = 20%)
-    - random_state: Controls the shuffling applied to the data before split
-    """
     print(f"Loading dataset from: '{file_path}'")
     df = pd.read_csv(file_path)
     print(f"Dataset shape: {df.shape} (rows, columns)\n")
@@ -69,8 +61,6 @@ def split_dataset(file_path, target_column="Target", test_size=0.2, random_state
 if __name__ == "__main__":
     csv_file = sys.argv[1] if len(sys.argv) > 1 else "sample_data.csv"
     
-    # Generate sample dataset if missing
     ensure_sample_dataset(csv_file)
     
-    # Split dataset
     split_dataset(csv_file, target_column="Target", test_size=0.2, random_state=42)
